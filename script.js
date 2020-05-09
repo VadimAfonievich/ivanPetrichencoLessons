@@ -1,5 +1,30 @@
 'use strict';
 
+let startProg = document.getElementById('start'),
+    budgetValue = document.getElementsByClassName('budget-value')[0],
+    dayBudgetValue = document.getElementsByClassName('dayBudget-value')[0],
+    levelValue = document.getElementsByClassName('lavel-value')[0],
+    savingsValue = document.getElementsByClassName('savings-value')[0],
+    expensesValue = document.getElementsByClassName('chooseExpenses-value')[0],
+    optExpensesValue = document.getElementsByClassName('chooseOptExpenses-value')[0],
+    incomeValue = document.getElementsByClassName('income-value')[0],
+    monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],
+    yearSavingsValue = document.getElementsByClassName('yearsavings-value')[0],
+
+    expensesItem = document.getElementsByClassName('expenses-item'),
+	expensesBtn = document.getElementsByTagName('button')[0],
+	optionalExpensesBtn = document.getElementsByTagName('button')[1],
+    countBtn = document.getElementsByTagName('button')[2],
+    optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
+	incomeItem = document.querySelector('.choose-income'),
+	checkSavings = document.querySelector('#savings'),
+	sumValue = document.querySelector('.choose-sum'),
+    percentValue = document.querySelector('.choose-percent'),
+    yearValue = document.querySelector('.year-value'),
+    monthValue = document.querySelector('.month-value'),
+    dayValue = document.querySelector('.day-value');
+
+
 let money, time;
 
 function start() {
@@ -15,7 +40,7 @@ start();
 
 
 let appData = {
-    finance : money,
+    budget : money,
     timeData : time,
     expenses : {},
     optionalExpenses : {},
@@ -38,7 +63,7 @@ let appData = {
         }
     },
     detectDayBudget : function() {
-        appData.moneyPerDay = (appData.finance / 30).toFixed();
+        appData.moneyPerDay = (appData.budget / 30).toFixed();
 
         alert('Ежедневный бюджет: ' + appData.moneyPerDay + ' руб.');
     },
